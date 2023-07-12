@@ -12,7 +12,7 @@ router.get('/', async(req, res) => {
     res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
-    console.log(err, 'error in category-routes.js');
+    console.log(err, 'error in category-routes.js get all categories');
   }
 });
 
@@ -25,7 +25,7 @@ router.get('/:id', async(req, res) => {
     res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
-    console.log(err, 'error in category-routes.js');
+    console.log(err, 'error in category-routes.js get one category by id');
   }
 });
 
@@ -36,7 +36,7 @@ router.post('/', async(req, res) => {
     res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
-    console.log(err, 'error in category-routes.js');
+    console.log(err, 'error in category-routes.js create new category');
   }
 });
 
@@ -51,7 +51,7 @@ router.put('/:id', async(req, res) => {
     res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
-    console.log(err, 'error in category-routes.js');
+    console.log(err, 'error in category-routes.js update category by id');
   }
 });
 
@@ -66,7 +66,7 @@ router.delete('/:id', async(req, res) => {
     res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
-    console.log(err, 'error in category-routes.js');
+    console.log(err, 'error in category-routes.js delete category by id');
   }
 });
 
