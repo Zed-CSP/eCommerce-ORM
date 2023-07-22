@@ -29,7 +29,11 @@ eCommerce Object Relational Mapping backend
   
   ## Demo
   video walkthrough
-  https://github.com/Zed-CSP/eCommerce-ORM/assets/123341169/902a949c-aa1f-41f4-ba16-09e05fbfe7cc
+
+
+https://github.com/Zed-CSP/eCommerce-ORM/assets/123341169/9f492976-5952-4304-a668-f3bb9b126dda
+
+
   
   ## Tests
   You may pull this repo and test/build upon the RESTful API routes using an API Platform of your choice. (I used Postman)
