@@ -76,28 +76,30 @@ router.put('/:id', (req, res) => {
       // get list of current tag_ids
       const productTagIds = productTags.map(({ tag_id }) => tag_id);
       // create filtered list of new tag_ids
-      const newProductTags = req.body.tagIds
-        .filter((tag_id) => !productTagIds.includes(tag_id))
-        .map((tag_id) => {
-          return {
-            product_id: req.params.id,
-            tag_id,
-          };
-        });
-      // figure out which ones to remove
-      const productTagsToRemove = productTags
-        .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
-        .map(({ id }) => id);
+      if (req.body.tagIds) { // if there are tagIds in the req.body object
+        const newProductTags = req.body.tagIds // filter the tagIds in the req.body object
+          .filter((tag_id) => !productTagIds.includes(tag_id)) // if the tag_id is not in the productTagIds array, return it
+          .map((tag_id) => { // map over the array of tagIds
+            return {
+              product_id: req.params.id,
+              tag_id,
+            };
+          });
+        // figure out which ones to remove
+        const productTagsToRemove = productTags // filter the productTags
+          .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id)) // if the tag_id is not in the req.body object, return it
+          .map(({ id }) => id); // map over the array of productTags and return the id
 
-      // run both actions
-      return Promise.all([
-        ProductTag.destroy({ where: { id: productTagsToRemove } }),
-        ProductTag.bulkCreate(newProductTags),
-      ]);
+        // run both actions
+        return Promise.all([
+          ProductTag.destroy({ where: { id: productTagsToRemove } }), // destroy the productTagsToRemove
+          ProductTag.bulkCreate(newProductTags), // bulk create the newProductTags
+        ]);
+      }
     })
     .then((updatedProductTags) => res.json(updatedProductTags))
     .catch((err) => {
-      // console.log(err);
+      console.log(err);
       res.status(400).json(err);
     });
 });
