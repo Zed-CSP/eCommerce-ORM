@@ -28,7 +28,7 @@ eCommerce Object Relational Mapping backend
   * Use your API platform to CRUD. (For instructions on Postman you can learn more in their [overview](https://learning.postman.com/docs/introduction/overview/))
   
   ## Demo
-  video walkthrough
+  video walkthrough.
 
 
 https://github.com/Zed-CSP/eCommerce-ORM/assets/123341169/9f492976-5952-4304-a668-f3bb9b126dda
